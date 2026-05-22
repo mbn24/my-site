@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض أعمالي | مطور التطبيقات</title>
+    <style>
+        /* إعدادات الخطوط والألوان العامة */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        /* القائمة العلوية Navigation */
+        nav {
+            background-color: #1e293b;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        nav h1 {
+            font-size: 1.8rem;
+            color: #38bdf8;
+        }
+
+        /* قسم التعريف الشخصي Hero Section */
+        .hero {
+            max-width: 800px;
+            margin: 60px auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* قسم المعرض وحاوية البطاقات Portfolio */
+        .portfolio-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #38bdf8;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* تصميم بطاقة التطبيق Card */
+        .project-card {
+            background-color: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: bold;
+        }
+
+        /* إذا أردت وضع صورة حقيقية، يمكنك استبدال العنصر أعلاه بـ وسم img */
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .project-info p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            height: 70px; /* لتناسق الأحجام */
+            overflow: hidden;
+        }
+
+        .technologies {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tech-badge {
+            background-color: #0f172a;
+            color: #38bdf8;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* أزرار التحميل والمعاينة Buttons */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #0284c7;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0369a1;
+        }
+
+        .btn-secondary {
+            background-color: #475569;
+            color: #f1f5f9;
+        }
+
+        .btn-secondary:hover {
+            background-color: #334155;
+        }
+
+        /* تذييل الصفحة Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #020617;
+            color: #64748b;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+    </style>
+  </head>
+  <body>
+      <div class="container">
+        <h2>💻حساب المعدل 💻</h2>
+
+<<<<<<< HEAD
+    <nav>
+        <h1>المعرض الشخصي لمطور التطبيقات</h1>
+    </nav>
+
+    <header class="hero">
+        <h2>مرحباً بك في عالمي البرمجي 👋</h2>
+        <p>أنا مطور واجهات ويب وتطبيقات هواتف ذكية، أهتم بتحويل الأفكار والعمليات الحسابية المعقدة إلى واجهات مستخدم سلسة وممتعة.</p>
+    </header>
+
+    <main class="portfolio-container">
+        <h2 class="section-title">تطبيقاتي المنجزة</h2>
+        
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/b2d7ff826824674543015ba87410a893.jpg" alt="تطبيق حساب المعدل" class="app-image">
+                    
+                </div>
+                <div class="project-info">
+                    <h3>تطبيق حساب المعدل (Calculator Rate)</h3>
+                    <p>تطبيق ذكي صُمم خصيصاً لمساعدة الطلاب على حساب معدلاتهم الفصلية والسنوية بسهولة بناءً على المواد والمقاييس المحددة لكل مستوى دراسي.</p>
+                    
+                    <div class="technologies">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Capacitor JS</span>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <a href="downloads/app-debug.apk" download="Calculator_Rate.apk" class="btn btn-primary">⬇️ تحميل للأندرويد APK</a>
+                        <a href="https://your-live-demo-link.com" target="_blank" class="btn btn-secondary">🌐 نسخة الويب</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    ⏳ قريباً.. تطبيق جديد
+                </div>
+                <div class="project-info">
+                    <h3>مشروعي القادم</h3>
+                    <p>أعمل حالياً على تطوير فكرة تطبيق جديدة لحل مشكلات يومية باستخدام أحدث تقنيات الويب والهواتف الذكية.</p>
+                    
+                    <div class="technologies">
+                        <span class="tech-badge">قيد التطوير</span>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-secondary" style="width: 100%; pointer-events: none; opacity: 0.5;">انتظرونا قريباً</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 | صُنع بشغف</p>
+    </footer>
+
+</body>
+</html>
+=======
+        <div class="selectors-container">
+        <select id="levelSelect" onchange="updateSubjects()">
+          <option value="L1">L1</option>
+          <option value="L2">L2</option>
+          <option value="L3">L3</option>
+        </select>
+
+        <select id="semesterSelect" onchange="updateSubjects()">
+          <option value="S1">S1</option>
+          <option value="S2">S2</option>
+        </select>
+      </div>
+       
+
+      <hr style="border: 0.5px solid #393e46; margin-bottom: 20px" />
+ 
+      <div id="subjectsContainer"></div>
+
+      <button onclick="addCustomSubject()" class="secondary-btn">
+        ➕ إضافة مادة مخصصة
+      </button>
+      <button onclick="calculateGPA()">🧮 احسب المعدل النهائي</button>
+
+      <div id="result"></div>
+  
+
+    <script>
+      // قاعدة بيانات المواد الخاصة بك حسب المستوى والسداسي
+      const subjectsData = {
+        L1: {
+          S1: [
+            { name: "Algorithmique et structure de données1", coeff: 5},
+            { name: "Analyse 1", coeff: 4 },
+            { name: " Structure machine 1", coeff: 3 },
+            { name: "Algébre 1", coeff: 3},
+            { name: "Electricité générale", coeff: 2 },
+            { name: "Langue Etrangére 1", coeff: 1 },
+            { name: "Logiciels libres (Open source)", coeff: 1 },
+          ],
+          S2: [
+            { name: "Algorithmique et structure de données2", coeff: 5 },
+            { name: "Analysis 2", coeff: 4 },
+            { name: "Structure machine 2", coeff: 3 },
+            { name: "Electronique fondamentale", coeff: 2 },
+            { name: "Algébre 2 ", coeff: 2},
+            { name: "Logique Mathématique ", coeff: 1 },
+            { name: "introductin à l'intelligence artificielle ", coeff: 1 },
+          ],
+        },
+        L2: {
+          S1: [
+            { name: "Architecture", coeff: 3 },
+            { name: "Algorithmique 3", coeff: 3 },
+            { name: "Systèmes d'Exploitation 1", coeff: 3 },
+            { name: "Théorie des Graphes", coeff: 2 },
+            { name: "Méthodes Numériques", coeff: 2 },
+          ],
+          S2: [
+            { name: "Systèmes d'Information", coeff: 3 },
+            { name: "Réseaux Locaux", coeff: 3 },
+            { name: "Base de Données", coeff: 3 },
+            { name: "Systèmes d'Exploitation 2", coeff: 2 },
+            { name: "Automates & Langages", coeff: 2 },
+          ],
+        },
+      };
+
+      // دالة تحديث وعرض المواد تلقائياً عند تغيير القائمة المنسدلة
+      function updateSubjects() {
+        let level = document.getElementById("levelSelect").value;
+        let semester = document.getElementById("semesterSelect").value;
+        let container = document.getElementById("subjectsContainer");
+
+        container.innerHTML = ""; // تنظيف القائمة القديمة
+        document.getElementById("result").innerHTML = ""; // تنظيف النتيجة السابقة
+
+        let currentSubjects = subjectsData[level][semester];
+
+        currentSubjects.forEach((sub) => {
+          createSubjectRow(sub.name, sub.coeff);
+        });
+      }
+
+      // دالة مساعدة لإنشاء سطر مادة جديد في الواجهة
+      function createSubjectRow(name, coeff) {
+        let container = document.getElementById("subjectsContainer");
+
+        let row = document.createElement("div");
+        row.className = "subject-row";
+
+        row.innerHTML = `
+                <input type="text" class="sub-name subject-name" value="${name}" placeholder="اسم المادة">
+                <input type="number" class="coeff" value="${coeff}" placeholder="المعامل" style="max-width: 80px; text-align: center;">
+               <input type="number" class="mark-td" placeholder="20/TD  " min="0" max="20" style="max-width: 100px; text-align: center;" >
+                <input type="number" class="mark-exam" placeholder="Exam / 20" min="0" max="20">
+                
+             `;
+        container.appendChild(row);
+      }
+      // دالة إضافة مادة مخصصة فارغة عند الضغط على الزر
+      function addCustomSubject() {
+        createSubjectRow("", "1");
+      }
+
+      // دالة الاتصال ببايثون (Flask) لحساب المعدل وعرضه
+      async function calculateGPA() {
+    let tdElements = document.querySelectorAll('.mark-td');
+    let examElements = document.querySelectorAll('.mark-exam');
+    let coeffsElements = document.querySelectorAll('.coeff');
+    
+    let finalMarks = []; // سنضع هنا معدل كل مادة النهائي بعد دمج الـ TD والامتحان
+    let coeffs = [];
+    let hasError = false;
+
+    for (let i = 0; i < examElements.length; i++) {
+        if (tdElements[i].value === "" || examElements[i].value === "") {
+            hasError = true;
+            break;
+        }
+        
+        // حساب معدل المادة الواحدة (40% للـ TD و 60% للامتحان)
+        let tdMark = parseFloat(tdElements[i].value);
+        let examMark = parseFloat(examElements[i].value);
+        let subjectAverage = (tdMark * 0.4) + (examMark * 0.6);
+        
+        finalMarks.push(subjectAverage.toFixed(2)); // إرسال العلامة النهائية المدمجة
+        coeffs.push(coeffsElements[i].value);
+    }
+
+    let resultDiv = document.getElementById('result');
+    if (hasError) {
+        resultDiv.innerHTML = "❌ يرجى ملء علامات الـ TD والامتحانات لجميع المواد أولاً!";
+        resultDiv.style.backgroundColor = "rgba(255, 0, 0, 0.1)";
+        resultDiv.style.color = "#ff4a4a";
+        return;
+    }
+
+    try {
+        // إرسال البيانات الجاهزة إلى Flask
+        let response = await fetch('http://127.0.0.1:5000/calculate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ marks: finalMarks, coeffs: coeffs })
+        });
+
+        let result = await response.json();
+        
+        if (response.ok) {
+            let isSuccess = parseFloat(result.gpa) >= 10;
+            resultDiv.innerHTML = `المعدل الإجمالي: ${result.gpa} <br> <span style="font-size: 18px;">الحالة: ${result.status}</span>`;
+            resultDiv.style.backgroundColor = isSuccess ? "rgba(0, 255, 0, 0.1)" : "rgba(255, 0, 0, 0.1)";
+            resultDiv.style.color = isSuccess ? "#00ff75" : "#ff4a4a";
+        } else {
+            resultDiv.innerHTML = `❌ ${result.error}`;
+            resultDiv.style.color = "#ff4a4a";
+        }
+    } catch (err) {
+        resultDiv.innerHTML = "❌ تأكد من تشغيل ملف بايثون app.py أولاً ليعمل الحساب!";
+        resultDiv.style.backgroundColor = "rgba(255, 165, 0, 0.1)";
+        resultDiv.style.color = "orange";
+    }
+}
+
+
+     // 1. تحديد رقم إصدار التطبيق الحالي (عندما تُصدر تحديثاً جديداً قم بزيادة هذا الرقم)
+const CURRENT_VERSION_CODE = 1; 
+
+// 2. دالة جلب الفحص ومقارنة الإصدارات عبر الإنترنت
+async function checkForUpdates() {
+    // ضع هنا الرابط المباشر لملف الـ json الخاص بك المرفوع على الإنترنت
+    const updateUrl = "https://mben-dev.netlify.app/version.json"; 
+
+    try {
+        let response = await fetch(updateUrl);
+        if (!response.ok) return;
+        
+        let latestData = await response.json();
+
+        // إذا كان الإصدار على السيرفر أكبر من إصدار التطبيق الحالي
+        if (latestData.version_code > CURRENT_VERSION_CODE) {
+            showUpdateDialog(latestData.version_name, latestData.change_log, latestData.download_url);
+        }
+    } catch (error) {
+        console.log("تعذر التحقق من التحديثات (لا يوجد اتصال بالإنترنت).");
+    }
+}
+
+// 3. دالة إظهار نافذة التحديث المنبثقة للمستخدم
+function showUpdateDialog(versionName, changeLog, downloadUrl) {
+    document.getElementById('updateModal').style.display = 'flex';
+    document.getElementById('updateVersion').innerText = "الإصدار الجديد المتوفر: " + versionName;
+    document.getElementById('updateLog').innerText = "الجديد في هذا التحديث:\n" + changeLog;
+    
+    // توجيه المستخدم لتحميل التحديث فور الضغط على الزر
+    document.getElementById('downloadBtn').onclick = function() {
+        window.open(downloadUrl, '_blank');
+    };
+}
+
+// تشغيل المواد افتراضياً لأول مرة عند فتح الصفحة، متبوعاً بفحص التحديثات تلقائياً
+updateSubjects();
+checkForUpdates();
+
+    </script>
+    
+
+    <div id="updateModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 9999; justify-content: center; align-items: center; backdrop-filter: blur(5px);">
+        <div style="background: #111827; padding: 30px; border-radius: 24px; max-width: 380px; width: 90%; text-align: center; border: 2px solid #3b82f6; box-shadow: 0 10px 25px rgba(0,0,0,0.5); color: white;">
+            <h3 style="color: #3b82f6; margin-top: 0; font-size: 22px; font-weight: bold; margin-bottom: 10px;">✨ يتوفر تحديث جديد! ✨</h3>
+            <p id="updateVersion" style="font-weight: 500; font-size: 16px; margin-bottom: 15px; color: #9ca3af;"></p>
+            
+            <div style="background: #1f2937; padding: 15px; border-radius: 14px; text-align: right; margin-bottom: 20px; direction: rtl;">
+                <strong style="font-size: 14px; color: #3b82f6;">محتوى التحديث:</strong>
+                <p id="updateLog" style="font-size: 14px; color: #d1d5db; margin: 5px 0 0 0; white-space: pre-line; line-height: 1.5;"></p>
+            </div>
+            
+            <button id="downloadBtn" style="background: #10b981; color: white; padding: 14px; border: none; border-radius: 50px; width: 100%; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
+                تنزيل التحديث الآن 📥
+            </button>
+        </div>
+    </div>
+
+    
+  </body>
+</html>
+>>>>>>> fb00c30
