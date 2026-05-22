@@ -1,0 +1,139 @@
+import flet as ft
+
+# هيكل البيانات الخاص بكل مادة
+class SubjectRow:
+    def __init__(self, name, coeff):
+        self.name_field = ft.TextField(value=name, label="اسم المادة")
+        self.coeff_field = ft.TextField(value=coeff, label="المعامل")
+        self.mark_field = ft.TextField(label="العلامة من عشرين")
+        
+        # تجميع العناصر في سطر واحد متوافق مع نسختك
+        self.view = ft.Row(
+            controls=[self.name_field, self.coeff_field, self.mark_field]
+        )
+
+def main(page: ft.Page):
+    page.title = "تطبيق الإعلام الآلي المتكامل"
+    page.theme_mode = "dark"  # تحديد المظهر الداكن مباشرة لحل مشكلة الألوان
+    page.scroll = "auto"
+
+    # الحاويات الرئيسية للمواد والنتائج
+    subjects_container = ft.Column(spacing=10)
+    subjects_list = []
+    error_text = ft.Text(color="red", size=14, weight="bold")
+    
+    # بطاقة النتيجة المبسطة لضمان التوافق
+    result_text = ft.Text(size=18, weight="bold")
+    result_card = ft.Container(content=result_text, visible=False, padding=15)
+
+    # دالة تحديث المواد يدوياً لتجنب مشاكل القوائم المنسدلة المعقدة
+    def load_subjects(e):
+        subjects_container.controls.clear()
+        subjects_list.clear()
+        result_card.visible = False
+        error_text.value = ""
+
+        # المواد الافتراضية للسنة الأولى السداسي الأول
+        default_data = [
+            ("Algorithmics 1", "4"), 
+            ("Analysis 1", "4"), 
+            ("Machine Structure 1", "3"), 
+            ("Algebra 1", "3"), 
+            ("English 1", "1")
+        ]
+
+        for name, coeff in default_data:
+            row_obj = SubjectRow(name, coeff)
+            subjects_list.append(row_obj)
+            subjects_container.controls.append(row_obj.view)
+        page.update()
+
+    # دالة حساب المعدل المتوافقة تماماً
+    def calculate_gpa(e):
+        total_points = 0.0
+        total_coefficients = 0.0
+        has_error = False
+
+        for row in subjects_list:
+            if not row.mark_field.value:
+                has_error = True
+                error_text.value = "❌ يرجى ملء علامات جميع المواد أولاً!"
+                break
+            try:
+                mark = float(row.mark_field.value)
+                coeff = float(row.coeff_field.value) if row.coeff_field.value else 1.0
+                total_points += (mark * coeff)
+                total_coefficients += coeff
+            except ValueError:
+                has_error = True
+                error_text.value = "❌ يرجى التأكد من كتابة أرقام صحيحة!"
+                break
+
+        if not has_error:
+            error_text.value = ""
+            gpa = total_points / total_coefficients if total_coefficients > 0 else 0.0
+            
+            if gpa >= 10.0:
+                result_text.value = f"🎉 المعدل الإجمالي: {gpa:.2f} - ناجح (Admis) 🎉"
+                result_text.color = "green"
+            else:
+                result_text.value = f"⚠️ المعدل الإجمالي: {gpa:.2f} - راسب (Ajourné) ⚠️"
+                result_text.color = "red"
+                
+            result_card.visible = True
+        else:
+            result_card.visible = False
+        page.update()
+
+    def add_custom_subject(e):
+        row_obj = SubjectRow("", "1")
+        subjects_list.append(row_obj)
+        subjects_container.controls.append(row_obj.view)
+        page.update()
+
+
+    # --- 🧭 تبديل واجهات الصفحات الآمن والمباشر لنسخة 0.15 ---
+
+    def go_to_calculator(e):
+        page.controls = calculator_view
+        load_subjects(None)  # تحميل المواد تلقائياً عند الدخول
+        page.update()
+
+    def go_to_welcome(e):
+        page.controls = welcome_view
+        page.update()
+
+    # 1️⃣ صفحة الترحيب الرئيسية
+    welcome_view = [
+        ft.Container(height=50),
+        ft.Text("👋 أهلاً بك في تطبيق الطالب 👋", size=26, weight="bold"),
+        ft.Text("احسب معدلك الجامعي بسهولة وسرعة وبشكل دقيق.", size=16),
+        ft.Container(height=30),
+        ft.TextButton(
+            text="الدخول لحساب المعدل 💻", 
+            on_click=go_to_calculator
+        )
+    ]
+
+    # 2️⃣ صفحة حساب المعدل
+    calculator_view = [
+        ft.TextButton(text="⬅️ العودة للشاشة الرئيسية", on_click=go_to_welcome),
+        ft.Text("💻 حساب معدل الإعلام الآلي 💻", size=22, weight="bold"),
+        ft.Divider(height=20),
+        subjects_container,
+        ft.Divider(height=10),
+        error_text,
+        ft.Row(
+            controls=[
+                ft.TextButton("إضافة مادة مخصصة", on_click=add_custom_subject),
+                ft.TextButton("احسب المعدل", on_click=calculate_gpa),
+            ]
+        ),
+        result_card
+    ]
+
+    # تشغيل صفحة الترحيب كأول واجهة يراها المستخدم
+    page.controls = welcome_view
+    page.update()
+
+ft.app(target=main)

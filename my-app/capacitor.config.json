@@ -1,0 +1,10 @@
+{
+  "appId": "com.example.app",
+  "appName": "Calculator Rate",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض أعمالي | مطور التطبيقات</title>
+    <style>
+        /* إعدادات الخطوط والألوان العامة */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        /* القائمة العلوية Navigation */
+        nav {
+            background-color: #1e293b;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        nav h1 {
+            font-size: 1.8rem;
+            color: #38bdf8;
+        }
+
+        /* قسم التعريف الشخصي Hero Section */
+        .hero {
+            max-width: 800px;
+            margin: 60px auto;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* قسم المعرض وحاوية البطاقات Portfolio */
+        .portfolio-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #38bdf8;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* تصميم بطاقة التطبيق Card */
+        .project-card {
+            background-color: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background-color: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: bold;
+        }
+
+        /* إذا أردت وضع صورة حقيقية، يمكنك استبدال العنصر أعلاه بـ وسم img */
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .project-info p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            height: 70px; /* لتناسق الأحجام */
+            overflow: hidden;
+        }
+
+        .technologies {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tech-badge {
+            background-color: #0f172a;
+            color: #38bdf8;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* أزرار التحميل والمعاينة Buttons */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background 0.2s ease;
+        }
+
+        .btn-primary {
+            background-color: #0284c7;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #0369a1;
+        }
+
+        .btn-secondary {
+            background-color: #475569;
+            color: #f1f5f9;
+        }
+
+        .btn-secondary:hover {
+            background-color: #334155;
+        }
+
+        /* تذييل الصفحة Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #020617;
+            color: #64748b;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h1>المعرض الشخصي لمطور التطبيقات</h1>
+    </nav>
+
+    <header class="hero">
+        <h2>مرحباً بك في عالمي البرمجي 👋</h2>
+        <p>أنا مطور واجهات ويب وتطبيقات هواتف ذكية، أهتم بتحويل الأفكار والعمليات الحسابية المعقدة إلى واجهات مستخدم سلسة وممتعة.</p>
+    </header>
+
+    <main class="portfolio-container">
+        <h2 class="section-title">تطبيقاتي المنجزة</h2>
+        
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <div class="project-image">
+                    📸 واجهة تطبيق حساب المعدل
+                </div>
+                <div class="project-info">
+                    <h3>تطبيق حساب المعدل (Calculator Rate)</h3>
+                    <p>تطبيق ذكي صُمم خصيصاً لمساعدة الطلاب على حساب معدلاتهم الفصلية والسنوية بسهولة بناءً على المواد والمقاييس المحددة لكل مستوى دراسي.</p>
+                    
+                    <div class="technologies">
+                        <span class="tech-badge">HTML5</span>
+                        <span class="tech-badge">CSS3</span>
+                        <span class="tech-badge">JavaScript</span>
+                        <span class="tech-badge">Capacitor JS</span>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <a href="downloads/app-debug.apk" download="Calculator_Rate.apk" class="btn btn-primary">⬇️ تحميل للأندرويد APK</a>
+                        <a href="https://your-live-demo-link.com" target="_blank" class="btn btn-secondary">🌐 نسخة الويب</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    ⏳ قريباً.. تطبيق جديد
+                </div>
+                <div class="project-info">
+                    <h3>مشروعي القادم</h3>
+                    <p>أعمل حالياً على تطوير فكرة تطبيق جديدة لحل مشكلات يومية باستخدام أحدث تقنيات الويب والهواتف الذكية.</p>
+                    
+                    <div class="technologies">
+                        <span class="tech-badge">قيد التطوير</span>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-secondary" style="width: 100%; pointer-events: none; opacity: 0.5;">انتظرونا قريباً</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2026 | صُنع بشغف</p>
+    </footer>
+
+</body>
+</html>
