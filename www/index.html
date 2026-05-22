@@ -258,8 +258,65 @@
     }
 }
 
-      // تشغيل المواد افتراضياً لأول مرة عند فتح الصفحة
-      updateSubjects();
+
+     // 1. تحديد رقم إصدار التطبيق الحالي (عندما تُصدر تحديثاً جديداً قم بزيادة هذا الرقم)
+const CURRENT_VERSION_CODE = 1; 
+
+// 2. دالة جلب الفحص ومقارنة الإصدارات عبر الإنترنت
+async function checkForUpdates() {
+    // ضع هنا الرابط المباشر لملف الـ json الخاص بك المرفوع على الإنترنت
+    const updateUrl = "https://mben-dev.netlify.app/version.json"; 
+
+    try {
+        let response = await fetch(updateUrl);
+        if (!response.ok) return;
+        
+        let latestData = await response.json();
+
+        // إذا كان الإصدار على السيرفر أكبر من إصدار التطبيق الحالي
+        if (latestData.version_code > CURRENT_VERSION_CODE) {
+            showUpdateDialog(latestData.version_name, latestData.change_log, latestData.download_url);
+        }
+    } catch (error) {
+        console.log("تعذر التحقق من التحديثات (لا يوجد اتصال بالإنترنت).");
+    }
+}
+
+// 3. دالة إظهار نافذة التحديث المنبثقة للمستخدم
+function showUpdateDialog(versionName, changeLog, downloadUrl) {
+    document.getElementById('updateModal').style.display = 'flex';
+    document.getElementById('updateVersion').innerText = "الإصدار الجديد المتوفر: " + versionName;
+    document.getElementById('updateLog').innerText = "الجديد في هذا التحديث:\n" + changeLog;
+    
+    // توجيه المستخدم لتحميل التحديث فور الضغط على الزر
+    document.getElementById('downloadBtn').onclick = function() {
+        window.open(downloadUrl, '_blank');
+    };
+}
+
+// تشغيل المواد افتراضياً لأول مرة عند فتح الصفحة، متبوعاً بفحص التحديثات تلقائياً
+updateSubjects();
+checkForUpdates();
+
     </script>
+    
+
+    <div id="updateModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); z-index: 9999; justify-content: center; align-items: center; backdrop-filter: blur(5px);">
+        <div style="background: #111827; padding: 30px; border-radius: 24px; max-width: 380px; width: 90%; text-align: center; border: 2px solid #3b82f6; box-shadow: 0 10px 25px rgba(0,0,0,0.5); color: white;">
+            <h3 style="color: #3b82f6; margin-top: 0; font-size: 22px; font-weight: bold; margin-bottom: 10px;">✨ يتوفر تحديث جديد! ✨</h3>
+            <p id="updateVersion" style="font-weight: 500; font-size: 16px; margin-bottom: 15px; color: #9ca3af;"></p>
+            
+            <div style="background: #1f2937; padding: 15px; border-radius: 14px; text-align: right; margin-bottom: 20px; direction: rtl;">
+                <strong style="font-size: 14px; color: #3b82f6;">محتوى التحديث:</strong>
+                <p id="updateLog" style="font-size: 14px; color: #d1d5db; margin: 5px 0 0 0; white-space: pre-line; line-height: 1.5;"></p>
+            </div>
+            
+            <button id="downloadBtn" style="background: #10b981; color: white; padding: 14px; border: none; border-radius: 50px; width: 100%; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
+                تنزيل التحديث الآن 📥
+            </button>
+        </div>
+    </div>
+
+    
   </body>
 </html>
