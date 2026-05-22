@@ -1,253 +1,265 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Calculate your rate</title>
     <style>
-        /* تنسيق عصري وأنيق للواجهة */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #425d42;
-            color: #e6e6e6;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-        }
-        .container {
-            max-width: 600px;
-            margin: 30px auto;
-            background: #242445;
-            padding: 30px;
-            border-radius: 30px;
-            box-shadow: 0 8px 20px rgba(174, 70, 70, 0.4);
-        }
-        h2 {
-            color: #00adb5;
-            margin-bottom: 25px;
-        }
-        .selectors-container {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-        select, input {
-            flex: 1;
-            padding: 12px;
-            border-radius: 30px;
-            border: 1px solid #093f96;
-            background: #1a1a2e;
-            color: white;
-            font-size: 14px;
-            outline: none;
-        }
-        select:focus, input:focus {
-            border-color: #00b50f;
-        }
-        .subject-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
-            align-items: center;
-        }
-        .subject-name {
-            flex: 2;
-            background: #252553;
-            text-align: right;
-            padding-right: 15px;
-        }
-        button {
-            background-color: #cb4520;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 80px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 16px;
-            width: 100%;
-            margin-top: 15px;
-            transition: 0.3s;
-        }
-        button:hover {
-            background-color: #00fff5;
-            color: #1a1a2e;
-        }
-        .secondary-btn {
-            background-color: #393e46;
-            margin-top: 10px;
-        }
-        .secondary-btn:hover {
-            background-color: #4b525d;
-            color: white;
-        }
-        #result {
-            margin-top: 25px;
-            font-size: 22px;
-            font-weight: bold;
-            padding: 15px;
-            border-radius: 8px;
-        }
+      /* تنسيق عصري وأنيق للواجهة */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #425d42;
+        color: #e6e6e6;
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: 30px auto;
+        background: #242445;
+        padding: 30px;
+        border-radius: 30px;
+        box-shadow: 0 8px 20px rgba(174, 70, 70, 0.4);
+      }
+      h2 {
+        color: #00adb5;
+        margin-bottom: 25px;
+      }
+      .selectors-container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 25px;
+      }
+      select,
+      input {
+        flex: 1;
+        padding: 12px;
+        border-radius: 30px;
+        border: 1px solid #093f96;
+        background: #1a1a2e;
+        color: white;
+        font-size: 14px;
+        outline: none;
+      }
+      select:focus,
+      input:focus {
+        border-color: #00b50f;
+      }
+      .subject-row {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+        align-items: normal;
+      }
+      .subject-name {
+        flex: 2;
+        background: #252553;
+        text-align: right;
+        padding-right: 15px;
+      }
+      button {
+        background-color: #cb4520;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 80px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+        width: 100%;
+        margin-top: 15px;
+        transition: 0.3s;
+      }
+      button:hover {
+        background-color: #00fff5;
+        color: #1a1a2e;
+      }
+      .secondary-btn {
+        background-color: #393e46;
+        margin-top: 10px;
+      }
+      .secondary-btn:hover {
+        background-color: #4b525d;
+        color: white;
+      }
+      #result {
+        margin-top: 25px;
+        font-size: 22px;
+        font-weight: bold;
+        padding: 15px;
+        border-radius: 8px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+      <div class="container">
+        <h2>💻حساب المعدل 💻</h2>
 
-    <div class="container">
-        <h2>💻حساب المعدل  💻</h2>
-        
-                
-<div class="selectors-container"></div>
-            <select id="levelSelect" onchange="updateSubjects()">
-                <option value="L1">L1 </option>
-                <option value="L2">L2 </option>
-                <option value="L3">L3 </option>
+        <div class="selectors-container">
+        <select id="levelSelect" onchange="updateSubjects()">
+          <option value="L1">L1</option>
+          <option value="L2">L2</option>
+          <option value="L3">L3</option>
+        </select>
 
-            </select>
+        <select id="semesterSelect" onchange="updateSubjects()">
+          <option value="S1">S1</option>
+          <option value="S2">S2</option>
+        </select>
+      </div>
+       
 
-            <select id="semesterSelect" onchange="updateSubjects()">
-                <option value="S1"> S1</option>
-                <option value="S2"> S2</option>
-            </select>
-        </div>
+      <hr style="border: 0.5px solid #393e46; margin-bottom: 20px" />
+ 
+      <div id="subjectsContainer"></div>
 
-        <hr style="border: 0.5px solid #393e46; margin-bottom: 20px;">
-        
-        <div id="subjectsContainer"></div>
+      <button onclick="addCustomSubject()" class="secondary-btn">
+        ➕ إضافة مادة مخصصة
+      </button>
+      <button onclick="calculateGPA()">🧮 احسب المعدل النهائي</button>
 
-        <button onclick="addCustomSubject()" class="secondary-btn">➕ إضافة مادة مخصصة</button>
-        <button onclick="calculateGPA()">🧮 احسب المعدل النهائي</button>
-        
-        <div id="result"></div>
-    </div>
+      <div id="result"></div>
+  
 
     <script>
-        // قاعدة بيانات المواد الخاصة بك حسب المستوى والسداسي
-        const subjectsData = {
-            "L1": {
-                "S1": [
-                    {name: "Algorithmics 1", coeff: 0},
-                    {name: "Analysis 1", coeff: 0},
-                    {name: "Machine Structure 1", coeff: 0},
-                    {name: "Algebra 1", coeff: 0},
-                    {name: "English 1", coeff: 0}
-                ],
-                "S2": [
-                    {name: "Algorithmics 2", coeff: 0},
-                    {name: "Analysis 2", coeff: 0},
-                    {name: "Machine Structure 2", coeff: 0},
-                    {name: "Electrostatics", coeff: 0},
-                    {name: "English 2", coeff: 0}
-                ]
-            },
-            "L2": {
-                "S1": [
-                    {name: "Architecture", coeff: 3},
-                    {name: "Algorithmique 3", coeff: 3},
-                    {name: "Systèmes d'Exploitation 1", coeff: 3},
-                    {name: "Théorie des Graphes", coeff: 2},
-                    {name: "Méthodes Numériques", coeff: 2}
-                ],
-                "S2": [
-                    {name: "Systèmes d'Information", coeff: 3},
-                    {name: "Réseaux Locaux", coeff: 3},
-                    {name: "Base de Données", coeff: 3},
-                    {name: "Systèmes d'Exploitation 2", coeff: 2},
-                    {name: "Automates & Langages", coeff: 2}
-                ]
-            }
-           
-        };
+      // قاعدة بيانات المواد الخاصة بك حسب المستوى والسداسي
+      const subjectsData = {
+        L1: {
+          S1: [
+            { name: "Algorithmique et structure de données1", coeff: 5},
+            { name: "Analyse 1", coeff: 4 },
+            { name: " Structure machine 1", coeff: 3 },
+            { name: "Algébre 1", coeff: 3},
+            { name: "Electricité générale", coeff: 2 },
+            { name: "Langue Etrangére 1", coeff: 1 },
+            { name: "Logiciels libres (Open source)", coeff: 1 },
+          ],
+          S2: [
+            { name: "Algorithmique et structure de données2", coeff: 5 },
+            { name: "Analysis 2", coeff: 4 },
+            { name: "Structure machine 2", coeff: 3 },
+            { name: "Electronique fondamentale", coeff: 2 },
+            { name: "Algébre 2 ", coeff: 2},
+            { name: "Logique Mathématique ", coeff: 1 },
+            { name: "introductin à l'intelligence artificielle ", coeff: 1 },
+          ],
+        },
+        L2: {
+          S1: [
+            { name: "Architecture", coeff: 3 },
+            { name: "Algorithmique 3", coeff: 3 },
+            { name: "Systèmes d'Exploitation 1", coeff: 3 },
+            { name: "Théorie des Graphes", coeff: 2 },
+            { name: "Méthodes Numériques", coeff: 2 },
+          ],
+          S2: [
+            { name: "Systèmes d'Information", coeff: 3 },
+            { name: "Réseaux Locaux", coeff: 3 },
+            { name: "Base de Données", coeff: 3 },
+            { name: "Systèmes d'Exploitation 2", coeff: 2 },
+            { name: "Automates & Langages", coeff: 2 },
+          ],
+        },
+      };
 
-        // دالة تحديث وعرض المواد تلقائياً عند تغيير القائمة المنسدلة
-        function updateSubjects() {
-            let level = document.getElementById('levelSelect').value;
-            let semester = document.getElementById('semesterSelect').value;
-            let container = document.getElementById('subjectsContainer');
-            
-            container.innerHTML = ""; // تنظيف القائمة القديمة
-            document.getElementById('result').innerHTML = ""; // تنظيف النتيجة السابقة
+      // دالة تحديث وعرض المواد تلقائياً عند تغيير القائمة المنسدلة
+      function updateSubjects() {
+        let level = document.getElementById("levelSelect").value;
+        let semester = document.getElementById("semesterSelect").value;
+        let container = document.getElementById("subjectsContainer");
 
-            let currentSubjects = subjectsData[level][semester];
+        container.innerHTML = ""; // تنظيف القائمة القديمة
+        document.getElementById("result").innerHTML = ""; // تنظيف النتيجة السابقة
 
-            currentSubjects.forEach(sub => {
-                createSubjectRow(sub.name, sub.coeff);
-            });
-        }
+        let currentSubjects = subjectsData[level][semester];
 
-        // دالة مساعدة لإنشاء سطر مادة جديد في الواجهة
-        function createSubjectRow(name, coeff) {
-            let container = document.getElementById('subjectsContainer');
-            
-            let row = document.createElement('div');
-            row.className = 'subject-row';
-            
-            row.innerHTML = `
+        currentSubjects.forEach((sub) => {
+          createSubjectRow(sub.name, sub.coeff);
+        });
+      }
+
+      // دالة مساعدة لإنشاء سطر مادة جديد في الواجهة
+      function createSubjectRow(name, coeff) {
+        let container = document.getElementById("subjectsContainer");
+
+        let row = document.createElement("div");
+        row.className = "subject-row";
+
+        row.innerHTML = `
                 <input type="text" class="sub-name subject-name" value="${name}" placeholder="اسم المادة">
                 <input type="number" class="coeff" value="${coeff}" placeholder="المعامل" style="max-width: 80px; text-align: center;">
-                <input type="number" class="mark" placeholder="العلامة / 20" min="0" max="20">
-            `;
-            
-            container.appendChild(row);
-        }
-
-        // دالة إضافة مادة مخصصة فارغة عند الضغط على الزر
-        function addCustomSubject() {
-            createSubjectRow("", "1");
-        }
-
-        // دالة الاتصال ببايثون (Flask) لحساب المعدل وعرضه
-        async function calculateGPA() {
-            let marksElements = document.querySelectorAll('.mark');
-            let coeffsElements = document.querySelectorAll('.coeff');
-            
-            let marks = [];
-            let coeffs = [];
-            let hasError = false;
-
-            for (let i = 0; i < marksElements.length; i++) {
-                if (marksElements[i].value === "") {
-                    hasError = true;
-                    break;
-                }
-                marks.push(marksElements[i].value);
-                coeffs.push(coeffsElements[i].value);
-            }
-
-            let resultDiv = document.getElementById('result');
-            if (hasError) {
-                resultDiv.innerHTML = "❌ يرجى ملء علامات جميع المواد أولاً!";
-                resultDiv.style.backgroundColor = "rgba(255, 0, 0, 0.1)";
-                resultDiv.style.color = "#ff4a4a";
-                return;
-            }
-
-            try {
-                // إرسال البيانات فوراً إلى السيرفر الخلفي ببايثون
-                let response = await fetch('http://127.0.0.1:5000/calculate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ marks: marks, coeffs: coeffs })
-                });
-
-                let result = await response.json();
+               <input type="number" class="mark-td" placeholder="20/TD  " min="0" max="20" style="max-width: 100px; text-align: center;" >
+                <input type="number" class="mark-exam" placeholder="Exam / 20" min="0" max="20">
                 
-                if (response.ok) {
-                    let isSuccess = parseFloat(result.gpa) >= 10;
-                    resultDiv.innerHTML = `المعدل الإجمالي: ${result.gpa} <br> <span style="font-size: 18px;">الحالة: ${result.status}</span>`;
-                    resultDiv.style.backgroundColor = isSuccess ? "rgba(0, 255, 0, 0.1)" : "rgba(255, 0, 0, 0.1)";
-                    resultDiv.style.color = isSuccess ? "#00ff75" : "#ff4a4a";
-                } else {
-                    resultDiv.innerHTML = `❌ ${result.error}`;
-                    resultDiv.style.color = "#ff4a4a";
-                }
-            } catch (err) {
-                resultDiv.innerHTML = "❌ تأكد من تشغيل ملف بايثون app.py أولاً ليعمل الحساب!";
-                resultDiv.style.backgroundColor = "rgba(255, 165, 0, 0.1)";
-                resultDiv.style.color = "orange";
-            }
-        }
+             `;
+        container.appendChild(row);
+      }
+      // دالة إضافة مادة مخصصة فارغة عند الضغط على الزر
+      function addCustomSubject() {
+        createSubjectRow("", "1");
+      }
 
-        // تشغيل المواد افتراضياً لأول مرة عند فتح الصفحة
-        updateSubjects();
+      // دالة الاتصال ببايثون (Flask) لحساب المعدل وعرضه
+      async function calculateGPA() {
+    let tdElements = document.querySelectorAll('.mark-td');
+    let examElements = document.querySelectorAll('.mark-exam');
+    let coeffsElements = document.querySelectorAll('.coeff');
+    
+    let finalMarks = []; // سنضع هنا معدل كل مادة النهائي بعد دمج الـ TD والامتحان
+    let coeffs = [];
+    let hasError = false;
+
+    for (let i = 0; i < examElements.length; i++) {
+        if (tdElements[i].value === "" || examElements[i].value === "") {
+            hasError = true;
+            break;
+        }
+        
+        // حساب معدل المادة الواحدة (40% للـ TD و 60% للامتحان)
+        let tdMark = parseFloat(tdElements[i].value);
+        let examMark = parseFloat(examElements[i].value);
+        let subjectAverage = (tdMark * 0.4) + (examMark * 0.6);
+        
+        finalMarks.push(subjectAverage.toFixed(2)); // إرسال العلامة النهائية المدمجة
+        coeffs.push(coeffsElements[i].value);
+    }
+
+    let resultDiv = document.getElementById('result');
+    if (hasError) {
+        resultDiv.innerHTML = "❌ يرجى ملء علامات الـ TD والامتحانات لجميع المواد أولاً!";
+        resultDiv.style.backgroundColor = "rgba(255, 0, 0, 0.1)";
+        resultDiv.style.color = "#ff4a4a";
+        return;
+    }
+
+    try {
+        // إرسال البيانات الجاهزة إلى Flask
+        let response = await fetch('http://127.0.0.1:5000/calculate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ marks: finalMarks, coeffs: coeffs })
+        });
+
+        let result = await response.json();
+        
+        if (response.ok) {
+            let isSuccess = parseFloat(result.gpa) >= 10;
+            resultDiv.innerHTML = `المعدل الإجمالي: ${result.gpa} <br> <span style="font-size: 18px;">الحالة: ${result.status}</span>`;
+            resultDiv.style.backgroundColor = isSuccess ? "rgba(0, 255, 0, 0.1)" : "rgba(255, 0, 0, 0.1)";
+            resultDiv.style.color = isSuccess ? "#00ff75" : "#ff4a4a";
+        } else {
+            resultDiv.innerHTML = `❌ ${result.error}`;
+            resultDiv.style.color = "#ff4a4a";
+        }
+    } catch (err) {
+        resultDiv.innerHTML = "❌ تأكد من تشغيل ملف بايثون app.py أولاً ليعمل الحساب!";
+        resultDiv.style.backgroundColor = "rgba(255, 165, 0, 0.1)";
+        resultDiv.style.color = "orange";
+    }
+}
+
+      // تشغيل المواد افتراضياً لأول مرة عند فتح الصفحة
+      updateSubjects();
     </script>
-</body>
+  </body>
 </html>
